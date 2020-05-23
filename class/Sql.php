@@ -6,26 +6,33 @@ class Sql extends PDO {
 
 	public function __construct(){
 
-		$this->conn = new PDO("mysql:dbname=bdphp7;host=localhost", "root", "");
+		$this->conn = new PDO("mysql:host=localhost;dbname=dbphp7","root","root");
+		$this->conn->exec('SET CHARACTER SET utf8');
+	}
+
 
 		//$this->conn = new PDO("mysql:host=localhost;msql_dbname=bdphp7", "root", "");
 
-	}
+	//}
 
-	private function setParams($statment, $parameters = array()){
+	private function setParams($statement, $parameters = array()){
 
 		foreach ($parameters as $key => $value) {
 
-			$this->setParam($statment, $key, $value);
+			$this->setParam($statement, $key, $value);
 
 		}
 	}
 
-	private function setParam($statment, $key, $value){
+	 //prepara varios parametros e chama o setParam
 
-		$statment->bindParam($key, $value);
+	private function setParam($statement, $key, $value){
+
+		$statement->bindParam($key, $value);
 
 	}
+
+	 //prepara a query utiliza os metodos acima
 
 	public function query($rawQuery, $params = array()){
 
@@ -37,6 +44,8 @@ class Sql extends PDO {
 
 		return $stmt;
 	}
+
+	// Função para fazer select no bd
 
 	public function select($rawQuery, $params = array()):array{
 

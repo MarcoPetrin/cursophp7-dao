@@ -8,10 +8,15 @@ require_once("config.php");
 
 //echo json_encode($usuarios);
 
-$root = new Usuario();
+//Carrega um usuário
 
-$root->loadbyId(3);
+//$root = new Usuario();
+//$root->loadbyId(4);
+//echo $root;
 
-echo $root;
+//Carrega uma lista de usuários
+$lista = Usuario::getlist();
+
+echo json_encode($lista);
 
  ?>
