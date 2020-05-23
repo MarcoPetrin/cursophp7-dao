@@ -127,7 +127,7 @@ class Usuario {
 
     	$sql = new Sql();
 
-    	$sql->query("UPDATE tbusuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE idusuario = :ID", array(
+    	$sql->query("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :PASSWORD WHERE idusuario = :ID", array(
     		':LOGIN'=>$this->getDeslogin(),
     		':PASSWORD'=>$this->getDessenha(),
     		':ID'=>$this->getIdusuario()
